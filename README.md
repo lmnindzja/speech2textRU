@@ -1,6 +1,6 @@
 # speech2textRU
-Приложение для конвертации аудио записей на русском языке в текст на основе модели [jonatasgrosman/wav2vec2-large-xlsr-53-russian
-](wav2vec2-large-xlsr-53-russian)
+Приложение для конвертации аудио записей на русском языке в текст на основе модели 
+[wav2vec2-large-xlsr-53-russian](https://huggingface.co/jonatasgrosman/wav2vec2-large-xlsr-53-russian)
 
 ### Зависимости
     $ pip install huggingsound

@@ -1,6 +1,9 @@
 from transformers import pipeline
+!wget -O uploaded.mp3 http://www.moviesoundclips.net/movies1/backtothefuture/style.mp3
+asr = pipeline("automatic-speech-recognition",   
+                      "openai/whisper-small")
 
-classifier = pipeline("sentiment-analysis",   
-                      "blanchefort/rubert-base-cased-sentiment")
 
-print(classifier("Я обожаю инженерию машинного обучения!"))
+text = asr('uploaded.mp3')
+print (text)
+

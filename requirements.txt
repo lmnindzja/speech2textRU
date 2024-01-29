@@ -1,1 +1,2 @@
 huggingsound
+ffmpeg-python

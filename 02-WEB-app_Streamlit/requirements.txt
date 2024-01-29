@@ -1,6 +1,3 @@
 huggingsound
 ffmpeg-python
 transformers
-numpy
-streamlit
-io

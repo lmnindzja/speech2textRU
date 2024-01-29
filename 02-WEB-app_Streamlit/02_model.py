@@ -1,5 +1,5 @@
 import io
-
+import ffmpeg
 import streamlit as st
 from transformers import pipeline
 import numpy as np

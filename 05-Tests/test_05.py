@@ -17,13 +17,13 @@ def mocked_asr_pipeline(monkeypatch):
     monkeypatch.setattr("transformers.pipelines.pipeline", mock_asr_pipeline)
 
 def test_asr_app_with_file(mocked_file_uploader, mocked_asr_pipeline, capsys):
-    import 05-model.py  # Подставьте имя вашего файла скрипта
+    import 05-model  # Подставьте имя вашего файла скрипта
     captured = capsys.readouterr()
     assert "Filename: dummy_audio_data" in captured.out
     assert "Mocked ASR result" in captured.out
 
 def test_asr_app_without_file(capsys):
-    import 05-model.py  # Подставьте имя вашего файла скрипта
+    import 05-model  # Подставьте имя вашего файла скрипта
     captured = capsys.readouterr()
     assert "Upload a file" in captured.out
     assert "Filename:" not in captured.out

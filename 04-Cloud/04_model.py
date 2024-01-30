@@ -2,6 +2,7 @@ import io
 import streamlit as st
 from transformers import pipeline
 import numpy as np
+import ffmpeg
 
 asr = pipeline("automatic-speech-recognition", "openai/whisper-small")
 

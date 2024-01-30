@@ -2,4 +2,4 @@ transformers
 huggingsound
 ffmpeg-python
 tensorflow
-PyTorch
+torch

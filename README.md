@@ -5,33 +5,12 @@
 Целью данного проекта является разработка и реализация эффективного и точного сервиса транскрибации аудиозаписей с использованием искусственного интеллекта и машинного обучения. Этот сервис позволит студентам и другим пользователям преобразовывать аудиозаписи в текстовый формат. Наш сервис будет универсальным, легким в использовании и обеспечит высокое качество транскрибации, чтобы пользователи могли легко обрабатывать и анализировать информацию из аудиозаписей.
 
 ## Описание
-speech2textRU - Приложение для конвертации аудио записей на русском языке в текст на основе модели 
-[wav2vec2-large-xlsr-53-russian](https://huggingface.co/jonatasgrosman/wav2vec2-large-xlsr-53-russian)
-Интерфейс на основе сервиса Streamlit
+speech2textRU - Приложение для конвертации аудио записей на русском языке в текст с WEB-Интерфейсом из библиотеки streamlit.
 
-### Зависимости
-    $ pip install huggingsound
+Функции по распознованию и конвертации речи выполняет модель [lorenzoncina/whisper-small-ru](https://huggingface.co/lorenzoncina/whisper-small-ru).
+Данная модель представляет собой доработанную для преобразования русской речи в русский текст версию [openai/whisper-small](https://huggingface.co/openai/whisper-small) openai/whisper-small. Дообучение проводилось на датасете mozilla-foundation/common_voice_11_0 ru. 
+На проверочной выборке модель показывает следующий результат:
+Loss: 0.3060
+Wer: 12.2375
 
-### Использование модели  
-    from huggingsound import SpeechRecognitionModel
-  
-    model = SpeechRecognitionModel("jonatasgrosman/wav2vec2-large-xlsr-53-russian")
-    audio_paths = ["/path/to/file.mp3", "/path/to/another_file.wav"]
-    
-    transcriptions = model.transcribe(audio_paths)
 
-### Оценка точности конвертации
-    from huggingsound import SpeechRecognitionModel
-    
-    model = SpeechRecognitionModel("jonatasgrosman/wav2vec2-large-xlsr-53-english")
-    
-    references = [
-        {"path": "/path/to/sagan.mp3", "transcription": "extraordinary claims require extraordinary evidence"},
-        {"path": "/path/to/asimov.wav", "transcription": "violence is the last refuge of the incompetent"},
-    ]
-    
-    evaluation = model.evaluate(references)
-    
-    print(evaluation)
-    
-    # evaluation format: {"wer": 0.08, "cer": 0.02}

@@ -1,40 +1,38 @@
-!pip install -q condacolab
-import condacolab
-condacolab.install()
-
-!conda install transformers fastapi huggingsound soundfiletransformers io torch python-multipart nest-asyncio pyngrok uvicorn pydub
-
-from huggingsound import SpeechRecognitionModel
-from transformers import Wav2Vec2Processor
-from fastapi import FastAPI, HTTPException, File, UploadFile
-import soundfile as sf
+import io
+from transformers import pipeline
 import numpy as np
+import ffmpeg
+import nest_asyncio
+from pyngrok import ngrok
+import uvicorn
+from fastapi import FastAPI, HTTPException, File, UploadFile
+import streamlit as st
 
-model = SpeechRecognitionModel("jonatasgrosman/wav2vec2-large-xlsr-53-russian")
-processor = Wav2Vec2Processor.from_pretrained("jonatasgrosman/wav2vec2-large-xlsr-53-russian")
+asr = pipeline("automatic-speech-recognition", "lorenzoncina/whisper-small-ru")
 
-udio_paths = ["/content/temp_file.wav"]
-transcriptions = model.transcribe(audio_paths)
-text = transcriptions[0]
-print(text['transcription'])
-
-rom transformers import pipeline
-pipe = pipeline("automatic-speech-recognition", model="jonatasgrosman/wav2vec2-large-xlsr-53-russian")
-
+# Создание экземпляра FastAPI
 app = FastAPI()
+
+# Endpoint для проверки доступности сервиса
 @app.get('/health')
 async def health_check():
     return 'OK'
 
+# Endpoint для отправки аудиофайла формата MP3 и получения результата распознавания в виде текста
 @app.post('/recognize')
 async def recognize(file: UploadFile = File(..., media_type="audio/mpeg")):
-	with open("temp_file.wav", "wb") as temp_file:
-      	  temp_file.write(file.file.read())
+    # Конвертация MP3 в WAV и распознавание речи
+    with open("temp_file.wav", "wb") as temp_file:
+      temp_file.write(file.file.read())
+    transcription = (asr("/content/temp_file.wav"))
+    return transcription
 
-transcription = (pipe("/content/temp_file.wav"))
-    return {transcription}
+# Для проверки кода в Google Collab можно использовать проксирование портов во вне:
+'''
+!ngrok config add-authtoken <PASTE TOKEN FROM https://dashboard.ngrok.com/get-started/your-authtoken HERE>
 
 ngrok_tunnel = ngrok.connect(8000)
 print('Public URL:', ngrok_tunnel.public_url)
 nest_asyncio.apply()
 uvicorn.run(app, port=8000)
+'''

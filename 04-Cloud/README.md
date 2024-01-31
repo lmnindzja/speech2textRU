@@ -2,12 +2,12 @@
 
  Используются библиотеки:
 
-- [huggingface](https://huggingface.co) (коллекция готовых обученных моделей)
+- [huggingface](https://huggingface.co) - коллекция готовых обученных моделей
 - [Streamlit](https://streamlit.io/) - для создания веб-приложения
-- [transformers] - для использования модели ASR
+- [transformers] (https://huggingface.co/docs/transformers/index) - API и инструменты для простой интеграции предварительно обученных моделей
 
 
-Для распознавания использована модель whisper-small (содержит  38 млн параматеров) из библиотеки huggingfac [whisper-small](https://huggingface.co/openai/whisper-small)
+Для распознавания использована модель whisper-small (содержит  38 млн параматеров) из библиотеки huggingface [whisper-small](https://huggingface.co/openai/whisper-small)
 
 При загрузке аудиофайла приложение использует ASR для распознавания речи и выводит полученный текст.
 

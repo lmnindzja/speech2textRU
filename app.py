@@ -21,9 +21,17 @@ def asr_app_from_audio_file(audio_file_path):
 
     text = asr(file_to_model)
     st.write(text)
-
+# ASR from URL f.e http://www.moviesoundclips.net/movies1/backtothefuture/style.mp3
 uploaded_file = st.text_input("Enter audio file URL")
 if st.button("Process Audio"):
     asr_app_from_audio_file(uploaded_file)
+    
+# ASR from file dropbox
+uploaded_file = st.file_uploader("Upload a file")
 
-#test commit for testing tests and CI
+if uploaded_file:
+    st.write("Filename: ", uploaded_file.name)
+    file_to_model = uploaded_file.getvalue()
+
+    text = asr(file_to_model)
+    st.write(text)

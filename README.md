@@ -8,9 +8,11 @@
 speech2textRU - Приложение для конвертации аудио записей на русском языке в текст с WEB-Интерфейсом из библиотеки streamlit.
 
 Функции по распознованию и конвертации речи выполняет модель [lorenzoncina/whisper-small-ru](https://huggingface.co/lorenzoncina/whisper-small-ru).
-Данная модель представляет собой доработанную для преобразования русской речи в русский текст версию [openai/whisper-small](https://huggingface.co/openai/whisper-small) openai/whisper-small. Дообучение проводилось на датасете mozilla-foundation/common_voice_11_0 ru. 
+Данная модель представляет собой доработанную для преобразования русской речи в русский текст версию [openai/whisper-small](https://huggingface.co/openai/whisper-small). 
+Дообучение проводилось на датасете mozilla-foundation/common_voice_11_0 ru. 
+
 На проверочной выборке модель показывает следующий результат:
-Loss: 0.3060
-Wer: 12.2375
+### Loss: 0.3060
+### Wer: 12.2375
 
 

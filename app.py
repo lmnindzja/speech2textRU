@@ -35,3 +35,4 @@ if uploaded_file:
 
     text = asr(file_to_model)
     st.write(text)
+

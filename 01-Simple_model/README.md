@@ -2,7 +2,7 @@
 
 ## Описание
 Приложение распознаёт текст из аудио файла на английском языке.
-Использована модель whisper-small (содержит  38 млн параматеров) из библиотеки huggingface [whisper-small](https://huggingface.co/openai/whisper-small)
+Использована модель whisper-small (содержит  38 млн параматеров) из библиотеки huggingface [whisper-small](https://huggingface.co/openai/whisper-small).
 
 ### Использование модели  
         from transformers import pipeline

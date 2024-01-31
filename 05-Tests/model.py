@@ -16,7 +16,7 @@ def asr_app_from_audio_file(audio_file_path):
         st.error(f"Error fetching audio from file: {e}")
         return
 
-    file_to_model = audio_response.content
+    file_to_model = audio_file_path #audio_response.content
 
     text = asr(file_to_model)
     st.write(text)

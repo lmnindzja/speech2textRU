@@ -4,7 +4,7 @@ from transformers import pipeline
 import numpy as np
 import ffmpeg
 
-asr = pipeline("automatic-speech-recognition", "openai/whisper-small")
+asr = pipeline("automatic-speech-recognition", "lorenzoncina/whisper-small-ru")
 
 uploaded_file = st.file_uploader("Upload a file")
 

@@ -4,7 +4,7 @@
 
 - [huggingface](https://huggingface.co) - коллекция готовых обученных моделей
 - [Streamlit](https://streamlit.io/) - для создания веб-приложения
-- [transformers] (https://huggingface.co/docs/transformers/index) - API и инструменты для простой интеграции предварительно обученных моделей
+- [transformers](https://huggingface.co/docs/transformers/index) - API и инструменты для простой интеграции предварительно обученных моделей
 
 
 Для распознавания использована модель whisper-small (содержит  38 млн параматеров) из библиотеки huggingface [whisper-small](https://huggingface.co/openai/whisper-small)

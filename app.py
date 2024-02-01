@@ -5,7 +5,7 @@ import requests
 import numpy as np
 import ffmpeg
 
-asr = pipeline("automatic-speech-recognition", "lorenzoncina/whisper-small-ru")
+asr = pipeline("automatic-speech-recognition", "lorenzoncina/whisper-small-ru", chunk_length_s=30)
 
 def asr_app_from_audio_file(audio_file_path):
     st.write("Processing audio from file: ", audio_file_path)
@@ -19,7 +19,7 @@ def asr_app_from_audio_file(audio_file_path):
 
     file_to_model = audio_response.content
 
-    text = asr(file_to_model)
+    text = asr(file_to_model, batch_size=8)
     st.write(text)
 # ASR from URL f.e http://www.moviesoundclips.net/movies1/backtothefuture/style.mp3
 uploaded_file = st.text_input("Enter audio file URL")
@@ -27,12 +27,12 @@ if st.button("Process Audio"):
     asr_app_from_audio_file(uploaded_file)
     
 # ASR from file dropbox
-uploaded_file = st.file_uploader("Upload a file")
+uploaded_file = st.file_uploader("Upload a audio file")
 
 if uploaded_file:
     st.write("Filename: ", uploaded_file.name)
     file_to_model = uploaded_file.getvalue()
 
-    text = asr(file_to_model)
+    text = asr(file_to_model, batch_size=8)
     st.write(text)
 

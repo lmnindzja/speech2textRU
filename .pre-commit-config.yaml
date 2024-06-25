@@ -1,9 +1,6 @@
-repos:
-  - repo: https://github.com/pre-commit/mirrors-flake8
-    rev: v6.0.0  # Используйте последнюю стабильную версию из репозитория
-    hooks:
-      - id: flake8
-        args: 
-          - --max-line-length=88  # Пример настройки аргумента для максимальной длины строки
-          - --ignore=E203,W503     # Игнорирование определенных кодов ошибок
-          - --exclude=venv,docs    # Исключение папок из проверки
+   repos:
+     - repo: https://github.com/pre-commit/pre-commit-hooks
+       rev: v4.6.0
+       hooks:
+         - id: trailing-whitespace
+         - id: end-of-file-fixer

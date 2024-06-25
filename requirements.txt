@@ -1,5 +1,5 @@
 huggingface
-keras
+tf-keras
 numpy
 requests
 streamlit

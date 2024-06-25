@@ -15,4 +15,3 @@
 
 Скриншот работы приложения
 ![image](https://github.com/lmnindzja/speech2textRU/assets/149816540/45bb2905-2c1b-4aa4-a963-8ac78825110f)
-

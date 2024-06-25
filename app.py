@@ -25,7 +25,7 @@ def asr_app_from_audio_file(audio_file_path):
 uploaded_file = st.text_input("Enter audio file URL")
 if st.button("Process Audio"):
     asr_app_from_audio_file(uploaded_file)
-    
+
 # ASR from file dropbox
 uploaded_file = st.file_uploader("Upload a audio file")
 
@@ -35,4 +35,3 @@ if uploaded_file:
 
     text = asr(file_to_model, batch_size=8)
     st.write(text)
-

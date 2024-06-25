@@ -25,4 +25,3 @@ def asr_app_from_audio_file(audio_file_path):
 uploaded_file = st.text_input("Enter audio file URL")
 if st.button("Process Audio"):
     asr_app_from_audio_file(uploaded_file)
-

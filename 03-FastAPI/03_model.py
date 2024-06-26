@@ -6,6 +6,7 @@ asr = pipeline("automatic-speech-recognition", "lorenzoncina/whisper-small-ru")
 # Создание экземпляра FastAPI
 app = FastAPI()
 
+
 # Endpoint для проверки доступности сервиса
 @app.get('/health')
 async def health_check():

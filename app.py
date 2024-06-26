@@ -1,11 +1,9 @@
-import io
 import streamlit as st
 from transformers import pipeline
 import requests
-import numpy as np
-import ffmpeg
 
 asr = pipeline("automatic-speech-recognition", "lorenzoncina/whisper-small-ru", chunk_length_s=30)
+
 
 def asr_app_from_audio_file(audio_file_path):
     st.write("Processing audio from file: ", audio_file_path)
@@ -22,6 +20,8 @@ def asr_app_from_audio_file(audio_file_path):
     text = asr(file_to_model, batch_size=8)
     st.write(text)
 # ASR from URL f.e http://www.moviesoundclips.net/movies1/backtothefuture/style.mp3
+
+
 uploaded_file = st.text_input("Enter audio file URL")
 if st.button("Process Audio"):
     asr_app_from_audio_file(uploaded_file)

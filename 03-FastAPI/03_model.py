@@ -1,12 +1,5 @@
-import io
 from transformers import pipeline
-import numpy as np
-import ffmpeg
-import nest_asyncio
-from pyngrok import ngrok
-import uvicorn
-from fastapi import FastAPI, HTTPException, File, UploadFile
-import streamlit as st
+from fastapi import FastAPI, File, UploadFile
 
 asr = pipeline("automatic-speech-recognition", "lorenzoncina/whisper-small-ru")
 
@@ -18,12 +11,13 @@ app = FastAPI()
 async def health_check():
     return 'OK'
 
+
 # Endpoint для отправки аудиофайла формата MP3 и получения результата распознавания в виде текста
 @app.post('/recognize')
 async def recognize(file: UploadFile = File(..., media_type="audio/mpeg")):
     # Конвертация MP3 в WAV и распознавание речи
     with open("temp_file.wav", "wb") as temp_file:
-      temp_file.write(file.file.read())
+        temp_file.write(file.file.read())
     transcription = (asr("/content/temp_file.wav"))
     return transcription
 
